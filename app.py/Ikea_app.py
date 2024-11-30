@@ -4,7 +4,7 @@ from elasticsearch import Elasticsearch
 app = Flask(__name__)
 
 # Connect to Elasticsearch
-es = Elasticsearch('https://localhost:9200', basic_auth=('elastic', 'uRmY*oulxBA8+N4m_4nW'), verify_certs=False)
+es = Elasticsearch('https://localhost:9200', basic_auth=('elastic', '*********'), verify_certs=False)
 
 # Function to get products from Elasticsearch based on category
 def get_products_from_es(category):
