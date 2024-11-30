@@ -5,7 +5,7 @@ from elasticsearch import Elasticsearch
 # Initialize Elasticsearch
 es = Elasticsearch(
     hosts=["http://localhost:9200"],
-    basic_auth=("elastic", "uRmY*oulxBA8+N4m_4nW"),
+    basic_auth=("elastic", "******"),
     verify_certs=False,
 )
 
