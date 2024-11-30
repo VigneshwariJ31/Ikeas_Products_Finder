@@ -67,7 +67,7 @@ Once logged in, Kibana will allow you to visualize and interact with your data s
   ```bash
   pip install flask
 
-### 3.Instructions to Upload JSON Data to Elasticsearch
+### Instructions to Upload JSON Data to Elasticsearch
 #### 1. Ensure Elasticsearch is Running
 Make sure Elasticsearch is running on http://localhost:9200 and Kibana on http://localhost:5601.
 #### 2.Place JSON Data and Python Script
