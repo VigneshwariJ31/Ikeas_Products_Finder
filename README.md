@@ -61,13 +61,13 @@ Once logged in, Kibana will allow you to visualize and interact with your data s
 
 ## Setup
 
-### Prerequisites
+### 1. Prerequisites
 - **Python 3.x**: Ensure you have Python 3.x installed on your system.
 - **Flask**: The backend is built using Flask. Install Flask by running the following command:
   ```bash
   pip install flask
 
-### Instructions to Upload JSON Data to Elasticsearch
+### 2. Instructions to Upload JSON Data to Elasticsearch
 #### 1. Ensure Elasticsearch is Running
 Make sure Elasticsearch is running on http://localhost:9200 and Kibana on http://localhost:5601.
 #### 2.Place JSON Data and Python Script
@@ -78,11 +78,11 @@ In your terminal or command line, navigate to the project directory and run the 
   python Load_Ikea_products.py
 #### 4.Verify Data in Kibana
 Go to Kibana (http://localhost:5601), navigate to Discover, and check the uploaded data in your Elasticsearch index.
-### 4. Run the Flask Server
+### 3. Run the Flask Server
 Start the Flask application by running the following command:
 python Ikea_app.py
 By default, Flask runs on http://127.0.0.1:5000. Open this URL in your browser to access the product search platform.
-### 5. View the Product Search Interface
+### 4. View the Product Search Interface
 Once the server is running, navigate to the following URL in your browser:
 http://127.0.0.1:5000
 You should see the IKEA product search interface where you can search for products by category or keyword.
