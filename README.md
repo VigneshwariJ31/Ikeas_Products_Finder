@@ -71,8 +71,8 @@ Once logged in, Kibana will allow you to visualize and interact with your data s
 #### 1. Ensure Elasticsearch is Running
 Make sure Elasticsearch is running on http://localhost:9200 and Kibana on http://localhost:5601.
 #### 2. Place JSON Data and Python Script
- - Ensure your JSON data file (e.g., data.json) is in the project directory.
- - Ensure your Python script (e.g., upload_data.py) is ready to load data into Elasticsearch.
+ - Ensure your JSON data file (data/ikea_products.json) is in the project directory.
+ - Ensure your Python script (app.py/Load_ikea_products.py) is ready to load data into Elasticsearch.
 #### 3. Run the Python Script
 In your terminal or command line, navigate to the project directory and run the Python script:
   python Load_Ikea_products.py
