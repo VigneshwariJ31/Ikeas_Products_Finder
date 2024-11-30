@@ -97,7 +97,7 @@ You should see the IKEA product search interface where you can search for produc
   - **ikea_products.json** contains the product data in JSON format.
 - **README.md** contains the project documentation.
 - **requirements.txt** lists the Python dependencies required for the project.
-
+![image_alt](https://github.com/VigneshwariJ31/Ikeas_Products_Finder/blob/2ca8e22aaa6b9a2d121fe31f8c35f3c9dd08b6f7/Folder%20structure.png)
 ## Contributing
 Feel free to fork this repository, open issues, and submit pull requests. Contributions are welcome to enhance the product search experience or add more features.
 ## License
