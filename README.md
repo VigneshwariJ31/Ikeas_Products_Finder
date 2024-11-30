@@ -91,9 +91,9 @@ You should see the IKEA product search interface where you can search for produc
 ## Main Page
 ![image_alt](https://github.com/VigneshwariJ31/Ikeas_Products_Finder/blob/1920f0ad0f85eb7d24150e7d31d4b350939f534c/Main%20Screen.png)
 ## Search by category 
-![image_alt](https://github.com/VigneshwariJ31/Ikeas_Products_Finder/blob/1920f0ad0f85eb7d24150e7d31d4b350939f534c/Search_by_Keyword.png)
-## Search by keyword 
 ![image_alt](https://github.com/VigneshwariJ31/Ikeas_Products_Finder/blob/1920f0ad0f85eb7d24150e7d31d4b350939f534c/Search_by_category.png)
+## Search by keyword 
+![image_alt](https://github.com/VigneshwariJ31/Ikeas_Products_Finder/blob/1920f0ad0f85eb7d24150e7d31d4b350939f534c/Search_by_Keyword.png)
 ## Contributing
 Feel free to fork this repository, open issues, and submit pull requests. Contributions are welcome to enhance the product search experience or add more features.
 ## License
