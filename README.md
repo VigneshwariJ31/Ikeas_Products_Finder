@@ -87,17 +87,17 @@ Once the server is running, navigate to the following URL in your browser:
 http://127.0.0.1:5000
 You should see the IKEA product search interface where you can search for products by category or keyword.
 ## Folder Structure
-IKEA-Product-Search/
-├── app.py
-├── templates/
-│   └── ikea_ui.html
-├── static/
-│   ├── css/
-│   │   └── style.css
-├── data/
-│   └── ikea_products.json
-├── README.md
-└── requirements.txt
+
+- **IKEA-Product-Search/** is the root directory of the project.
+- **app.py** contains the main backend logic.
+  - **Ikea_app.py** is the main code to run the flask
+- **templates/** folder contains the HTML files for the user interface.
+  - **ikea_ui.html** is the main HTML page.
+- **data/** folder contains the JSON file with mock product data.
+  - **ikea_products.json** contains the product data in JSON format.
+- **README.md** contains the project documentation.
+- **requirements.txt** lists the Python dependencies required for the project.
+
 ## Contributing
 Feel free to fork this repository, open issues, and submit pull requests. Contributions are welcome to enhance the product search experience or add more features.
 ## License
