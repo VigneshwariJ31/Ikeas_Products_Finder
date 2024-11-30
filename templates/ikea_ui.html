@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Search - IKEA</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f0f8ff;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            text-align: center;
+        }
+
+        h1 {
+            color: #4CAF50; /* Green color */
+            margin-top: 20px;
+        }
+
+        .container {
+            margin-top: 30px;
+        }
+
+        select, input[type="text"] {
+            padding: 10px;
+            font-size: 16px;
+            margin-bottom: 20px;
+            background-color: #f1f1f1;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        .product-table {
+            width: 100%;
+            margin-top: 30px;
+            border-collapse: collapse;
+        }
+
+        .product-table th, .product-table td {
+            padding: 12px;
+            text-align: left;
+            border: 1px solid #ddd;
+        }
+
+        .product-table th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+        .product-table td {
+            background-color: #f9f9f9;
+        }
+
+        .product-table a {
+            color: #4CAF50;
+            text-decoration: none;
+        }
+
+        .product-table a:hover {
+            text-decoration: underline;
+        }
+
+        .welcome {
+            text-align: center;
+            font-size: 24px;
+            color: #ff6347; /* Tomato color */
+            margin-top: 50px;
+            padding: 20px;
+            font-weight: bold;
+            background-color: #ffefd5;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="welcome">Welcome to IKEA Product Search</div>
+
+    <div class="container">
+        <h2>Search Products by Category or Keyword</h2>
+
+        <!-- Category Search -->
+        <h3>Select a Category</h3>
+        <select id="categoryDropdown">
+            <option value="">Choose a category</option>
+            <option value="Bar furniture">Bar furniture</option>
+            <option value="Beds">Beds</option>
+            <option value="Bookcases & shelving units">Bookcases & shelving units</option>
+            <option value="Cabinets & cupboards">Cabinets & cupboards</option>
+            <option value="Café furniture">Café furniture</option>
+            <option value="Chairs">Chairs</option>
+            <option value="Chests of drawers & drawer units">Chests of drawers & drawer units</option>
+            <option value="Children's furniture">Children's furniture</option>
+            <option value="Nursery furniture">Nursery furniture</option>
+            <option value="Outdoor furniture">Outdoor furniture</option>
+            <option value="Room dividers">Room dividers</option>
+            <option value="Sideboards, buffets & console tables">Sideboards, buffets & console tables</option>
+            <option value="Sofas & armchairs">Sofas & armchairs</option>
+            <option value="Tables & desks">Tables & desks</option>
+            <option value="Trolleys">Trolleys</option>
+            <option value="TV & media furniture">TV & media furniture</option>
+            <option value="Wardrobes">Wardrobes</option>
+        </select>
+
+        <button onclick="searchByCategory()">Search by Category</button>
+
+        <hr>
+
+        <!-- Keyword Search -->
+        <h3>Search by Keyword</h3>
+        <input type="text" id="keywordInput" placeholder="Enter keyword for product search">
+        <button onclick="searchByKeyword()">Search by Keyword</button>
+
+        <!-- Product Table -->
+        <table id="productTable" class="product-table" style="display: none;">
+            <thead>
+                <tr>
+                    <th>Brand</th>
+                    <th>Price</th>
+                    <th>Link</th>
+                    <th>Description</th>
+                    <th>Depth</th>
+                    <th>Height</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+
+    <script>
+        // Function to search products by category
+        function searchByCategory() {
+            const category = document.getElementById("categoryDropdown").value;
+            if (!category) {
+                alert("Please select a category.");
+                return;
+            }
+
+            fetch(`/get_products/${category}`)
+                .then(response => response.json())
+                .then(data => {
+                    displayProducts(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching products:', error);
+                    alert("There was an error retrieving the product data. Please try again later.");
+                });
+        }
+
+        // Function to search products by keyword
+        function searchByKeyword() {
+            const keyword = document.getElementById("keywordInput").value.trim();
+            if (!keyword) {
+                alert("Please enter a keyword.");
+                return;
+            }
+
+            fetch(`/search_products?keyword=${keyword}`)
+                .then(response => response.json())
+                .then(data => {
+                    displayProducts(data);
+                })
+                .catch(error => {
+                    console.error('Error fetching products:', error);
+                    alert("There was an error retrieving the product data. Please try again later.");
+                });
+        }
+
+        // Function to display the products in the table
+        function displayProducts(products) {
+            const productTable = document.getElementById("productTable");
+            const productTableBody = productTable.querySelector("tbody");
+
+            if (Array.isArray(products) && products.length > 0) {
+                productTable.style.display = 'table'; // Show the table
+                productTableBody.innerHTML = ''; // Clear previous results
+
+                products.forEach(product => {
+                    const row = document.createElement("tr");
+
+                    row.innerHTML = `
+                        <td>${product.name || 'N/A'}</td>
+                        <td>${product.price || 'N/A'}</td>
+                        <td><a href="${product.link}" target="_blank">View Product</a></td>
+                        <td>${product.short_description || 'N/A'}</td>
+                        <td>${product.depth || 'N/A'}</td>
+                        <td>${product.height || 'N/A'}</td>
+                    `;
+
+                    productTableBody.appendChild(row);
+                });
+            } else {
+                alert("No products found.");
+            }
+        }
+    </script>
+
+</body>
+</html>
