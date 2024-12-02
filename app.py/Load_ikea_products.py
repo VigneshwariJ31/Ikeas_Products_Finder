@@ -7,7 +7,7 @@ with open(r'C:\Users\vicky\OneDrive\Desktop\ASU\Coursework\CSE 512\Extra Credit\
     ikea_data = json.load(file)
 
 # Connect to Elasticsearch
-es = Elasticsearch('https://localhost:9200', basic_auth=('elastic', 'uRmY*oulxBA8+N4m_4nW'), verify_certs=False)
+es = Elasticsearch('https://localhost:9200', basic_auth=('elastic', '******'), verify_certs=False)
 
 # Define the index name
 index_name = "ikea_products"
